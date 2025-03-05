@@ -1,0 +1,333 @@
+{
+	"groupId": "de.hsc",
+	"artifactId": "datagatewayserver",
+	"version": "3.8.29",
+	"type": "jar",
+	"dependencies": [
+		{
+			"groupId": "3rdp_libs",
+			"artifactId": "sap-idoc",
+			"version": "3.1.1",
+			"type": "jar",
+			"scope": "provided",
+			"licenses": []
+		},
+		{
+			"groupId": "com.h2database",
+			"artifactId": "h2",
+			"version": "2.2.220",
+			"type": "jar",
+			"scope": "compile",
+			"licenses": [
+				{
+					"name": "MPL 2.0",
+					"url": "https://www.mozilla.org/en-US/MPL/2.0/"
+				},
+				{
+					"name": "EPL 1.0",
+					"url": "https://opensource.org/licenses/eclipse-1.0.php"
+				}
+			]
+		},
+		{
+			"groupId": "org.glassfish.jersey.containers",
+			"artifactId": "jersey-container-jdk-http",
+			"version": "3.1.2",
+			"type": "jar",
+			"scope": "compile",
+			"dependencies": [
+				{
+					"groupId": "org.glassfish.jersey.core",
+					"artifactId": "jersey-common",
+					"version": "3.1.2",
+					"type": "jar",
+					"scope": "compile",
+					"dependencies": [
+						{
+							"groupId": "jakarta.inject",
+							"artifactId": "jakarta.inject-api",
+							"version": "2.0.1",
+							"type": "jar",
+							"scope": "compile",
+							"licenses": [
+								{
+									"name": "Apache License, 2.0",
+									"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+								}
+							]
+						}
+					],
+					"licenses": []
+				},
+				{
+					"groupId": "org.glassfish.jersey.core",
+					"artifactId": "jersey-server",
+					"version": "3.1.2",
+					"type": "jar",
+					"scope": "compile",
+					"dependencies": [
+						{
+							"groupId": "org.glassfish.jersey.core",
+							"artifactId": "jersey-client",
+							"version": "3.1.2",
+							"type": "jar",
+							"scope": "compile",
+							"licenses": []
+						},
+						{
+							"groupId": "jakarta.validation",
+							"artifactId": "jakarta.validation-api",
+							"version": "3.0.2",
+							"type": "jar",
+							"scope": "compile",
+							"licenses": []
+						}
+					],
+					"licenses": []
+				},
+				{
+					"groupId": "jakarta.ws.rs",
+					"artifactId": "jakarta.ws.rs-api",
+					"version": "3.1.0",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": []
+				}
+			],
+			"licenses": [
+				{
+					"name": "EPL 2.0",
+					"url": "http://www.eclipse.org/legal/epl-2.0"
+				},
+				{
+					"name": "GPL2 w/ CPE",
+					"url": "https://www.gnu.org/software/classpath/license.html"
+				},
+				{
+					"name": "EDL 1.0",
+					"url": "http://www.eclipse.org/org/documents/edl-v10.php"
+				},
+				{
+					"name": "BSD 2-Clause",
+					"url": "https://opensource.org/licenses/BSD-2-Clause"
+				},
+				{
+					"name": "Apache License, 2.0",
+					"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+				},
+				{
+					"name": "Public Domain",
+					"url": "https://creativecommons.org/publicdomain/zero/1.0/"
+				},
+				{
+					"name": "Modified BSD",
+					"url": "https://asm.ow2.io/license.html"
+				},
+				{
+					"name": "jQuery license",
+					"url": "jquery.org/license"
+				},
+				{
+					"name": "MIT license",
+					"url": "http://www.opensource.org/licenses/mit-license.php"
+				},
+				{
+					"name": "W3C license",
+					"url": "https://www.w3.org/Consortium/Legal/copyright-documents-19990405"
+				}
+			]
+		},
+		{
+			"groupId": "org.glassfish.jersey.inject",
+			"artifactId": "jersey-hk2",
+			"version": "3.1.2",
+			"type": "jar",
+			"scope": "compile",
+			"dependencies": [
+				{
+					"groupId": "org.glassfish.hk2",
+					"artifactId": "hk2-locator",
+					"version": "3.0.4",
+					"type": "jar",
+					"scope": "compile",
+					"dependencies": [
+						{
+							"groupId": "org.glassfish.hk2.external",
+							"artifactId": "aopalliance-repackaged",
+							"version": "3.0.4",
+							"type": "jar",
+							"scope": "compile",
+							"licenses": []
+						},
+						{
+							"groupId": "org.glassfish.hk2",
+							"artifactId": "hk2-api",
+							"version": "3.0.4",
+							"type": "jar",
+							"scope": "compile",
+							"licenses": []
+						},
+						{
+							"groupId": "org.glassfish.hk2",
+							"artifactId": "hk2-utils",
+							"version": "3.0.4",
+							"type": "jar",
+							"scope": "compile",
+							"licenses": []
+						}
+					],
+					"licenses": [
+						{
+							"name": "GPL",
+							"url": "https://www.gnu.org/software/GPL/license.html"
+						}
+					]
+				},
+				{
+					"groupId": "org.javassist",
+					"artifactId": "javassist",
+					"version": "3.29.0-GA",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "Apache License, Version 2.0",
+							"url": "http://www.opensource.org/licenses/apache2.0.php"
+						}
+					]
+				},
+				{
+					"groupId": "com.sun.xml.fastinfoset",
+					"artifactId": "FastInfoset",
+					"version": "2.1.0",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "Apache License, Version 2.0",
+							"url": "http://www.opensource.org/licenses/apache2.0.php"
+						},
+						{
+							"name": "Eclipse Distribution License - v 1.0",
+							"url": "http://www.eclipse.org/org/documents/edl-v10.php"
+						}
+					]
+				},
+				{
+					"groupId": "jakarta.mail",
+					"artifactId": "jakarta.mail-api",
+					"version": "2.1.1",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "EPL 2.0",
+							"url": "http://www.eclipse.org/legal/epl-2.0"
+						},
+						{
+							"name": "GPL2 w/ CPE",
+							"url": "https://www.gnu.org/software/classpath/license.html"
+						},
+						{
+							"name": "EDL 1.0",
+							"url": "http://www.eclipse.org/org/documents/edl-v10.php"
+						}
+					]
+				},
+				{
+					"groupId": "com.fasterxml.woodstox",
+					"artifactId": "woodstox-core",
+					"version": "6.5.0",
+					"type": "jar",
+					"scope": "runtime",
+					"licenses": [
+						{
+							"name": "The Apache License, Version 2.0",
+							"url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+						}
+					]
+				},
+				{
+					"groupId": "org.codehaus.woodstox",
+					"artifactId": "stax2-api",
+					"version": "4.2.1",
+					"type": "jar",
+					"scope": "runtime",
+					"licenses": []
+				},
+				{
+					"groupId": "jakarta.activation",
+					"artifactId": "jakarta.activation-api",
+					"version": "2.1.1",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "EDL 1.0",
+							"url": "http://www.eclipse.org/org/documents/edl-v10.php"
+						}
+					]
+				},
+				{
+					"groupId": "jakarta.xml.ws",
+					"artifactId": "jakarta.xml.ws-api",
+					"version": "4.0.0",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "GPL2 w/ CPE",
+							"url": "https://www.gnu.org/software/classpath/license.html"
+						}
+					]
+				},
+				{
+					"groupId": "jakarta.xml.bind",
+					"artifactId": "jakarta.xml.bind-api",
+					"version": "4.0.0",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "GPL2 w/ CPE",
+							"url": "https://www.gnu.org/software/classpath/license.html"
+						}
+					]
+				},
+				{
+					"groupId": "jakarta.xml.soap",
+					"artifactId": "jakarta.xml.soap-api",
+					"version": "3.0.0",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "EPL 2.0",
+							"url": "http://www.eclipse.org/legal/epl-2.0"
+						}
+					]
+				},
+				{
+					"groupId": "jakarta.annotation",
+					"artifactId": "jakarta.annotation-api",
+					"version": "2.1.1",
+					"type": "jar",
+					"scope": "compile",
+					"licenses": [
+						{
+							"name": "EPL 2.0",
+							"url": "http://www.eclipse.org/legal/epl-2.0"
+						}
+					]
+				}
+			],
+			"licenses": [
+				{
+					"name": "The Apache License, Version 2.0",
+					"url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+				}
+			]
+		}
+	],
+	"licenses": []
+}

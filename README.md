@@ -1,4 +1,4 @@
-# HSC | Recruiting Corner - Exercise
+# HSC | Recruiting Corner - Übung
 
 In diesem Repository wurde eine Übung für dich vorbereitet, die du innerhalb eines bestimmten Zeitraums bewältigen sollst.
 

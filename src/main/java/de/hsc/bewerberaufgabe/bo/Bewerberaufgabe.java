@@ -3,6 +3,8 @@
  */
 package de.hsc.bewerberaufgabe.bo;
 
+import java.util.List;
+
 /**
  *
  * @author Bewerbung
@@ -10,6 +12,25 @@ package de.hsc.bewerberaufgabe.bo;
 public class Bewerberaufgabe {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        if (args.length < 2){
+            System.out.println("plugin and outputFormat needed");
+            return;
+        }
+        String plugin = args[0].toLowerCase();
+        String outputFormat = args[1].toLowerCase();
+
+        String path = "examples/input/example." + args[0];
+
+        try {
+            InputParser inputParser = ParserFactory.getParser(plugin);
+            List<Library> libraries = inputParser.parseInput(path);
+
+            OutputConverter outputConverter = ConverterFactory.getConverter(outputFormat);
+            outputConverter.convert(libraries);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

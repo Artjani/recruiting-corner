@@ -35,14 +35,23 @@ public class Library {
     }
 
     public String getGroupId() {
+        if (groupId == null){
+            return "";
+        }
         return groupId;
     }
 
     public String getArtifactId() {
+        if (groupId == null){
+            return "";
+        }
         return artifactId;
     }
 
     public String getVersion() {
+        if (groupId == null){
+            return "";
+        }
         return version;
     }
 
@@ -61,6 +70,9 @@ public class Library {
         this.parentLib = libName;
     }
     public void addLicense(License license) {
+        if (this.licenses == null) {
+            this.licenses = new ArrayList<>();
+        }
         this.licenses.add(license);
     }
     public void addDependencies(Library lib) {
@@ -68,5 +80,8 @@ public class Library {
             this.dependencies = new ArrayList<>();
         }
         this.dependencies.add(lib);
+    }
+    public String printLibString(Library lib){
+        return "" + lib.getGroupId() +":"+ lib.getArtifactId() +":"+ lib.getVersion();
     }
 }

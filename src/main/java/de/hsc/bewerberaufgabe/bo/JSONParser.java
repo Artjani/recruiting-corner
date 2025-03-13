@@ -1,10 +1,10 @@
 package de.hsc.bewerberaufgabe.bo;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,44 +12,44 @@ public class JSONParser implements InputParser{
 
     @Override
     public List<Library> parseInput(String filePath) {
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new Gson();
 
         try (FileReader reader = new FileReader(filePath)) {
-            Library library = new Gson().fromJson(reader, Library.class);
-
-            System.out.println(library);
-            addDependencies(library);
+            JsonObject jsonObject = JsonParser.parseReader(reader).getAsJsonObject();
             List<Library> libraries = new ArrayList<>();
-            libraries.add(library);
-
-            List<Library> dependencies = library.getDependencies();
-            if (dependencies != null) {
-                System.out.println("Dependencies gefunden: " + dependencies.size());
-                for (Library dep : dependencies) {
-                    System.out.println(" - " + dep);
-                }
-            } else {
-                System.out.println("Keine Dependencies gefunden.");
-            }
-
+            libraries.add(printAsLibrary(jsonObject));
             return libraries;
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 
-    private void addDependencies(Library lib){
-        if(lib.getDependencies() != null){
-            List<Library> newDependencies = new ArrayList<>();
-            for (Library dependency : lib.getDependencies()){
-                dependency.setParentLib(lib);
-                newDependencies.add(dependency);
-                addDependencies(dependency);
+    private Library printAsLibrary(JsonObject jsonObject) {
+        String groupId = jsonObject.has("groupId") ? jsonObject.get("groupId").getAsString() : "";
+        String artifactId = jsonObject.has("artifactId") ? jsonObject.get("artifactId").getAsString() : "";
+        String version = jsonObject.has("version") ? jsonObject.get("version").getAsString() : "";
+
+        Library library = new Library(groupId, artifactId, version);
+
+        if (jsonObject.has("licenses")) {
+            JsonArray licensesArray = jsonObject.getAsJsonArray("licenses");
+            for (JsonElement licenseElement : licensesArray) {
+                JsonObject licenseObject = licenseElement.getAsJsonObject();
+                String name = licenseObject.has("name") ? licenseObject.get("name").getAsString() : "";
+                String url = licenseObject.has("url") ? licenseObject.get("url").getAsString() : "";
+                library.addLicense(new License(name, url));
             }
-            lib.getDependencies().addAll(newDependencies);
         }
-    }
 
+        if (jsonObject.has("dependencies")) {
+            JsonArray dependenciesArray = jsonObject.getAsJsonArray("dependencies");
+            for (JsonElement dependencyElement : dependenciesArray) {
+                JsonObject dependencyObject = dependencyElement.getAsJsonObject();
+                Library dependentLib = printAsLibrary(dependencyObject);
+                library.addDependencies(dependentLib);
+            }
+        }
+        return library;
+    }
 }

@@ -25,7 +25,7 @@ public class DATParser implements InputParser{
                 if (line.isEmpty()) continue;
 
                 int spaces = countSpaces(line);
-                //line = line.trim();
+                line = line.trim();
 
                 if (!line.contains("::")){
                     String[] libraryParts = line.split(":");
@@ -41,7 +41,6 @@ public class DATParser implements InputParser{
                             currentLib = new Library(libraryParts[0], libraryParts[1], libraryParts[2]);
                             break;
                     }
-
                     if (spaces == 0) {
                         parentLib = currentLib;
                     } else {
@@ -50,7 +49,6 @@ public class DATParser implements InputParser{
                     }
                     libraries.add(currentLib);
                 }
-
                 if (line.contains("::")){
                     String[] licenseParts = line.split("::");
                     if(licenseParts.length<2){
@@ -58,7 +56,6 @@ public class DATParser implements InputParser{
                     } else {
                         license = new License(licenseParts[0], licenseParts[1]);
                     }
-
                     LicenseValidator.checkLicense(currentLib);
                     currentLib.addLicense(license);
                 }
